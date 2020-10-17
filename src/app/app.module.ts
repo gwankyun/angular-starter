@@ -23,6 +23,7 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer'
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 import { ToDoComponent } from './to-do/to-do.component';
 import { CounterComponent } from './counter/counter.component';
@@ -60,7 +61,8 @@ registerLocaleData(zh);
     NzListModule,
     NzTabsModule,
     NzLayoutModule,
-    NzDrawerModule
+    NzDrawerModule,
+    NzDatePickerModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

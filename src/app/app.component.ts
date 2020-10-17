@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable, of } from 'rxjs'
+// import { of } from 'rxjs/operators'
 
 @Component({
   selector: 'app-root',
@@ -32,6 +34,15 @@ import { Component } from '@angular/core';
         <nz-tab nzTitle="滑動輸入條">
           <nz-slider [(ngModel)]="value" [nzDisabled]="disabled"></nz-slider>
         </nz-tab>
+        <nz-tab nzTitle="日期選擇框">
+          <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)" [nzMode]="datePickerMode"></nz-date-picker>
+          <nz-select [(ngModel)]="datePickerMode">
+            <nz-option nzValue="date" nzLabel="date"></nz-option>
+            <nz-option nzValue="week" nzLabel="week"></nz-option>
+            <nz-option nzValue="month" nzLabel="month"></nz-option>
+            <nz-option nzValue="year" nzLabel="year"></nz-option>
+          </nz-select>
+        </nz-tab>
         <nz-tab nzTitle="待辦">
           <app-to-do></app-to-do>
         </nz-tab>
@@ -40,6 +51,9 @@ import { Component } from '@angular/core';
         </nz-tab>
         <nz-tab nzTitle="組件間交互">
           <app-parent></app-parent>
+        </nz-tab>
+        <nz-tab nzTitle="RxJS">
+          <button nz-button nzType="primary" nzBlock="true" (click)="onOf()">of</button>
         </nz-tab>
       </nz-tabset>
     </div>
@@ -53,4 +67,26 @@ export class AppComponent {
   radioValue: string = 'A';
   selectValue: string = 'A';
   switchValue: boolean = false;
+  date: Date = null;
+  datePickerMode: string = 'date';
+
+  nums: Observable<number> = of(1, 2, 3);
+
+  onChange(date: Date): void {
+    console.log(`date: ${date}`);
+  }
+
+  onOf(): void {
+    this.nums.subscribe({
+      next(x) {
+        console.log(`next: ${x}`);
+      },
+      error(e) {
+        console.error(`error: ${e}`);
+      },
+      complete() {
+        console.log(`complete`)
+      }
+    });
+  }
 }
