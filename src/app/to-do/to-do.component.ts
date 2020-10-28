@@ -46,7 +46,7 @@ export class ToDoComponent implements OnInit {
 
   onAdd(): void {
     console.log("onAdd");
-    this.data = this.toDoService.add({ id: this.inputIndex, content: this.inputValue, level: 0 });
+    this.data = this.toDoService.add({ id: this.inputIndex, content: this.inputValue, level: 0, deleted: false });
     this.inputIndex++;
     this.inputValue = '';
   }
@@ -57,7 +57,7 @@ export class ToDoComponent implements OnInit {
 
   onEdit(item: ToDo): void {
     this.visible = true;
-    this.edit = { id: item.id, content: item.content, level: item.level };
+    this.edit = { id: item.id, content: item.content, level: item.level, deleted: false };
   }
 
   onClose(item?: ToDo): void {

@@ -16,7 +16,7 @@ export class ToDoService {
 
   add(toDo: ToDo): ToDo [] {
     this.data = produce(this.data, draft => {
-      draft.push({ id: toDo.id, content: toDo.content, level: toDo.level });
+      draft.push({ id: toDo.id, content: toDo.content, level: toDo.level, deleted: false });
     });
     return this.data;
   }
@@ -25,7 +25,8 @@ export class ToDoService {
     const index = this.data.findIndex(x => x.id === toDo.id);
     if (index !== -1) {
       this.data = produce(this.data, draft => {
-        draft.splice(index, 1);
+        // draft.splice(index, 1);
+        draft[index].deleted = true;
       });
     }
     return this.data;
