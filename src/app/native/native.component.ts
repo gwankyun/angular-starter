@@ -16,4 +16,8 @@ export class NativeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCheckboxChange(c: boolean) {
+    console.log(`${c}`);
+  }
+
 }
