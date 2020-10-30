@@ -32,6 +32,7 @@ import { ToDoDrawerComponent } from './to-do-drawer/to-do-drawer.component';
 import { ChildComponent } from './child/child.component';
 import { ParentComponent } from './parent/parent.component';
 import { NativeComponent } from './native/native.component';
+import { ObservableComponent } from './observable/observable.component';
 
 registerLocaleData(zh);
 
@@ -44,7 +45,8 @@ registerLocaleData(zh);
     ToDoDrawerComponent,
     ChildComponent,
     ParentComponent,
-    NativeComponent
+    NativeComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,
