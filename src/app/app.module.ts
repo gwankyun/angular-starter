@@ -33,6 +33,8 @@ import { ChildComponent } from './child/child.component';
 import { ParentComponent } from './parent/parent.component';
 import { NativeComponent } from './native/native.component';
 import { ObservableComponent } from './observable/observable.component';
+import { TemplateComponent } from './template/template.component';
+import { ListComponent } from './list/list.component';
 
 registerLocaleData(zh);
 
@@ -46,7 +48,9 @@ registerLocaleData(zh);
     ChildComponent,
     ParentComponent,
     NativeComponent,
-    ObservableComponent
+    ObservableComponent,
+    TemplateComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

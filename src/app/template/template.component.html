@@ -1,0 +1,16 @@
+<input type="checkbox" [checked]="checkbox" (change)="onChange($event.target.checked)" />
+<div *ngIf="checkbox else close">
+  打開
+</div>
+<ng-template #close>
+  <div>
+    關閉
+  </div>
+</ng-template>
+<ul>
+  <li *ngFor="let item of items">
+    {{ item }}
+  </li>
+</ul>
+<ng-container *ngComponentOutlet="ngComponentOutlet">
+</ng-container>
