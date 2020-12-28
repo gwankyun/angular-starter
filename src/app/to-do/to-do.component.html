@@ -1,0 +1,8 @@
+<input [(ngModel)]="edit" />
+<button (click)="onAdd()">+</button>
+<ul *ngFor="let item of items">
+  <li>
+    {{item.content}}
+    <button (click)="onRemove(item)">-</button>
+  </li>
+</ul>
